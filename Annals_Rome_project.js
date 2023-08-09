@@ -9,7 +9,6 @@ console.log('senatus sessio prima');
 
 //creazione array della lista senatori
 function costSenato(){
-    senatus[0] = "Cornelius Scipio";
     senatus[1] = "Cornelius Sulla";
     senatus[2] = "Cornelius Lentulus";
     senatus[3] = "Cornelius Cethegus";
@@ -49,44 +48,45 @@ function costSenato(){
     senatus[38] = "Cassius Longinus";
     senatus[39] = "Domitius Enobarbus";
     senatus[40] = "Julius Caesar";
+    senatus[41] = "Cornelius Scipio";
     console.log('Senatus in declaratio legis');
 }
 //funzione scelte da menù
 function scelta(s){
     switch(s){
-
         //cooptazione senatore
         case '1':
             var aggSenatore = prompt("Indica nome e prenome del senatore ");
             senatus.push(aggSenatore);
         break;
-        
         //rimozione senatore
         case '2':
-            var rimSenatore = prompt("Indica numero seggio del senatore da rimuovere");
-            console.log('hai deciso di rimuovere ' + se)   
-            senatus[rimSenatore] == "removatus";
-            console.log("senator removatus");
+            var rimSenatore = prompt("Indica numero seggio del senatore da rimuovere");   
+            senatus.splice(rimSenatore,1);
+            document.write('nova lista' + '<br />');
             for(i in senatus){
                 document.write("senator nr. " + i + " " + senatus[i] + "<br />");
             }
         break;
-
         //visualizzazione senato
         case '3':
+            document.write('SENATUS POPOLUSQUE ROMANUS' + '<br />' + '<br />');
             for(i in senatus){
                 document.write("senator nr. " + i + " " + senatus[i] + "<br />");
             }
             break;
         case '4':
+                
             break;
         case '5':
             break;
+        //elezioni consolari
         case '6':
             c1 = prompt("Primo candidato");
             c2 = prompt("Secondo candidato");
             comizi(c1, c2);
         break;
+        //passaggio turno
         case '7':
             anno =+ 10;
         break;
