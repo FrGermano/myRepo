@@ -1,12 +1,18 @@
 
 //anno consolare
-var anno = -509;
+var anno = -510;
+/*funzione che sostituisce quella di inizializzazione poiché inadeguata 
+in quanto effettua l'aggiornamento solo una volta poi si ferma */
+function incipit(){
+    document.getElementById('annus').innerText = anno;
+    anno++;
+    document.getElementById('annus').innerText = anno;
+}
+//fase di costituzione del senato
 var senatus = [];
 var i;
-//fase di costituzione del senato
 costSenato();
-console.log('senatus sessio prima');   
-
+console.log('senatus sessio prima');
 //creazione array della lista senatori
 function costSenato(){
     senatus[1] = "Cornelius Sulla";
@@ -88,13 +94,12 @@ function scelta(s){
         break;
         //passaggio turno
         case '7':
-            anno =+ 10;
+            incipit();
         break;
         case '8':
         break;
     }
 }
-
 function comizi(cand1, cand2){
     while(votus <= CENTURIAE){      
         var result = Math.round(Math.random());
